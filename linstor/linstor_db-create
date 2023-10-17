@@ -1,4 +1,4 @@
-linstor resource-group create linstor_rg --storage-pool linstor_pool --place-count 3
+linstor resource-group create linstor_rg --storage-pool linstor_pool --place-count 2
 #linstor resource-definition create --resource-group linstor_rg linstor_db
 
 linstor resource-group sp linstor_rg StorDriver/ZfscreateOptions "-b 32k"
