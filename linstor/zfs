@@ -1,3 +1,4 @@
+Pool=fast
 zfs set atime=off $Pool
 zfs set compress=lz4 $Pool
 zfs set secondarycache=metadata $Pool
