@@ -1,0 +1,9 @@
+Install-WindowsFeature SNMP-Service,SNMP-WMI-Provider -IncludeManagementTools
+
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\ValidCommunities" -Name "public" -Value 4 -PropertyType DWord
+Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\PermittedManagers" -Name 1 -Verbose
+
+netsh advfirewall firewall add rule name= "SNMP" dir=in action=allow protocol=UDP localport=161
+
+netsh advfirewall firewall add rule name="Allow ICMPv4" protocol=icmpv4:8,any dir=in action=allow
+netsh advfirewall firewall add rule name="Allow ICMPv6" protocol=icmpv6:8,any dir=in action=allow

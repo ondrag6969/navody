@@ -1,0 +1,5 @@
+linstor storage-pool create zfs uzel-a poolfast fast/linstor
+linstor resource-group create rgfast --place-count 1 --storage-pool poolfast
+linstor resource-group set-property rgfast StorDriver/ZfscreateOptions "-b 32k"
+linstor volume-group create rgfast
+linstor resource-group set-property rgfast StorPoolNameDrbdMeta poolfast

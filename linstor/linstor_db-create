@@ -1,0 +1,12 @@
+linstor resource-group create linstor_rg --storage-pool linstor_pool --place-count 3
+#linstor resource-definition create --resource-group linstor_rg linstor_db
+
+linstor resource-group sp linstor_rg StorDriver/ZfscreateOptions "-b 32k"
+linstor resource-group spawn-resources linstor_rg linstor_db 200M
+
+linstor rd drbd-options --auto-promote=no linstor_db
+linstor rd drbd-options --quorum=majority linstor_db
+linstor rd drbd-options --on-suspended-primary-outdated=force-secondary linstor_db
+linstor rd drbd-options --on-no-quorum=io-error linstor_db
+linstor rd drbd-options --on-no-data-accessible=io-error linstor_db
+linstor rd drbd-options --rr-conflict=retry-connect linstor_db

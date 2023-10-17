@@ -1,0 +1,6 @@
+zfs set atime=off $Pool
+zfs set compress=lz4 $Pool
+zfs set secondarycache=metadata $Pool
+zfs create $Pool/pve
+zfs create $Pool/linstor
+zfs create $Pool/linstor_db

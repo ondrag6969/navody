@@ -1,0 +1,4 @@
+linstor node interface create uzel-a propoj 192.168.255.1
+linstor node interface create uzel-b propoj 192.168.255.2
+#linstor resource-definition list | grep -i rgfast | awk '{print $2}' | while read Radek; do linstor resource-connection path create uzel-a uzel-b $Radek speedy propoj propoj; done
+linstor node-connection path create uzel-a uzel-b path1 propoj propoj

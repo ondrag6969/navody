@@ -1,0 +1,1 @@
+ipmitool raw 0x30 0x03
