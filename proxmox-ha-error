@@ -1,1 +1,0 @@
-for virtual in `ha-manager status | grep error | awk '{print $2}'`; do echo $virtual && ha-manager set $virtual --state disabled; done
