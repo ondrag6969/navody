@@ -1,6 +1,4 @@
 ipmitool user set name 3 icinga
-ipmitool user set password 3
-Password for user 3: 
-Password for user 3: 
 ipmitool channel setaccess 1 3 link=on ipmi=on callin=on privilege=2
 ipmitool user enable 3
+ipmitool user set password 3
