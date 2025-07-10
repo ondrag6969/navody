@@ -1,5 +1,7 @@
 Install-WindowsFeature SNMP-Service,SNMP-WMI-Provider -IncludeManagementTools
 
+rem Enable-WindowsOptionalFeature -Online -FeatureName SNMP
+
 New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\ValidCommunities" -Name "public" -Value 4 -PropertyType DWord
 Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\PermittedManagers" -Name 1 -Verbose
 
